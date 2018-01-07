@@ -1,0 +1,31 @@
+.crop-handle {
+    position: absolute;
+    display:inline-block;
+    width:10px;
+    height:10px;
+    background: black;
+}
+.crop-up {
+    top: 0;
+    left:50%;
+    transform: translate( -50% , -50% );
+    cursor: ns-resize;
+}
+.crop-down {
+    bottom: 0;
+    left:50%;
+    transform: translate( -50% , 50% );
+    cursor: ns-resize;
+}
+.crop-left {
+    top: 50%;
+    left:0;
+    transform: translate( -50% , -50% );
+    cursor: ew-resize;
+}
+.crop-right {
+    top: 50%;
+    right:0;
+    transform: translate( 50% , -50% );
+    cursor: ew-resize;
+}

@@ -1,0 +1,88 @@
+<html>
+<body>
+<link rel="stylesheet" type="text/css" href="mui.css" />
+<style>
+html {
+    color: white;
+    background: #222;
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height:1.5;
+}
+span {
+    margin: 3px;
+}
+</style>
+
+<b>A push button without border</b>
+<br />
+<span id='one' class='mui mui-push mui-no-border'>
+    Button
+</span>
+<br />
+<br />
+
+<b>A push button with border</b>
+<br />
+<span id='two' class='mui mui-push'>
+    Button
+</span>
+<br />
+<br />
+
+<b>A slider</b>
+<br />
+<div id='three' class='mui-slider' data-max=100 data-val=0 style='display:inline-block;position:relative;height:30px;margin-left:10px;width:calc(300px - 20px)'>
+    <div class='mui-track' style='position:absolute;left:0;top:50%;width:100%;border-top:1px solid #fff;padding:0;display:inline-block'></div>
+    <div class='mui-thumb' style='position:absolute;left:0;top:50%;transform:translate(-10px,-10px);border-radius:10px;padding:0;width:20px;height:20px;background:#fff;display:inline-block'></div>
+</div>
+<br />
+<br />
+
+<b>Segmented button</b>
+<br />
+<span id='four' class='mui-chose' style='width:200px'>
+    <span title='Option one' class='mui mui-pressed'>One</span>
+    <span title='Option two' class='mui'>Two</span>
+    <span title='Option three' class='mui'>Three</span>
+</span>
+<br />
+<br />
+
+<b>Toggle button</b>
+<br />
+<span id='five' title='Full screen' class='mui mui-toggle'>
+    Toggle
+</span>
+<br />
+<br />
+
+<b>Toggle button, pressed by default</b>
+<br />
+<span id='six' title='Chat' class='mui mui-toggle mui-pressed'>
+    Toggle
+</span>
+<br />
+<br />
+
+<b>Crop</b>
+<br />
+<div style='position:relative;display:inline-block;width:300px;height:200px;border:thin solid white'>
+    <div id='seven'></div>
+</div>
+<br />
+<br />
+
+<script src="http://localhost/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="mui.js"></script>
+<script>
+MUI.push($("#one"), () => console.log("one"));
+MUI.push($("#two"), () => console.log("two"));
+MUI.slider($("#three"), (x) => console.log("three", x));
+MUI.chose($("#four"), (o) => console.log("four", o));
+MUI.toggle($("#five"), () => console.log("five"));
+MUI.toggle($("#six"), () => console.log("six"));
+MUI.crop("#seven", (c) => console.log("seven", c));
+</script>
+</body>
+</html>
