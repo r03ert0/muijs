@@ -23,6 +23,10 @@
 .mui-label {
     color: white;
     user-select: none;
+    border: none;
+}
+.mui-label:hover {
+    opacity:1;
 }
 .mui-pressed {
     background-color:#555 !important;
