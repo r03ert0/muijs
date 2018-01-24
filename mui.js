@@ -189,7 +189,8 @@ var MUI = {
         $(elem).css({
             position: 'absolute',
             border: 'thin solid white',
-            background: 'rgba(0, 0, 0, 0.5)'
+            background: 'rgba(0, 0, 0, 0.0)',
+            boxShadow: '0 0 0 150px rgba(0, 0, 0, 0.6)'
         });
         $('body').on('mousedown', elem + ' .crop-handle', {elem: elem}, down);
         $('body').on('mousemove', {elem: elem}, (e) => {move(e, cb)});
