@@ -1,37 +1,43 @@
-<html>
-<body>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>muijs crop</title>
 
-<style>
-#content {
-    display:inline-block;
-    width:600px;
-    height:500px;
-    border: thin solid grey;
-    background: #ddd;
-}
-#crop {
-    position: absolute;
-    display:inline-block;
-    width:200px;
-    height:150px;
-    top: 100px;
-    left:200px;
-}
-</style>
+        <style>
+            #content {
+                display: inline-block;
+                width: 600px;
+                height: 500px;
+                border: thin solid grey;
+                background: #ddd;
+            }
+            #crop {
+                position: absolute;
+                display: inline-block;
+                width: 200px;
+                height: 150px;
+                top: 100px;
+                left: 200px;
+            }
+        </style>    
 
-<div id="content" style="position: relative">
-    <div id="crop">
-    </div>
-    This is a div with stuff inside
-</div>
+    </head>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-<script src="crop.js"></script>
-<link rel="stylesheet" type="text/css" href="crop.css" />
-<script>
-    Crop.crop('#crop', function (cropRect) {
-        console.log(cropRect);
-    });
-</script>
-</body>
+    <body>
+
+        <div id="content" style="position: relative">
+            <div id="crop">
+            </div>
+            This is a div with stuff inside
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+        <script src="crop.js"></script>
+        <link rel="stylesheet" type="text/css" href="crop.css" />
+        <script>
+            Crop.crop('#crop', function (cropRect) {
+                console.log(cropRect);
+            });
+        </script>
+    </body>
 </html>
