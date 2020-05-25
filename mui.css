@@ -2,129 +2,128 @@
 -----------------------------------------------------------------------------*/
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 .mui {
-    border:thin solid #777;
-    border-radius:3px;
-    margin:1px;
-    text-align:center;
-    height: 24px;
-    position: relative;
-    color: white;
-    user-select: none;
+  border: thin solid #777;
+  border-radius: 3px;
+  margin: 1px;
+  text-align: center;
+  height: 24px;
+  position: relative;
+  color: white;
+  user-select: none;
 }
 .mui:hover {
-    opacity:0.5;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    user-select:none;
+  opacity: 0.5;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 .mui-label {
-    color: white;
-    user-select: none;
-    border: none;
+  color: white;
+  user-select: none;
+  border: none;
 }
 .mui-label:hover {
-    opacity:1;
+  opacity: 1;
 }
 .mui-pressed {
-    background-color:#555 !important;
+  background-color: #555 !important;
 }
 .mui-icon {
-    width:16px;
-    vertical-align:middle;
-    user-select: none;
+  width: 16px;
+  vertical-align: middle;
+  user-select: none;
 }
 .mui-icon {
-    width:1rem;
-    height:1rem;
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    cursor:pointer;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 
 /* svg buttons
 ----------------------- */
 .mui-push {
-    border:1px solid #777;
-    border-radius:6px;
-    color:white;
-    text-align:center;
-    -webkit-appearance:none;
-    cursor: pointer;
+  border: 1px solid #777;
+  border-radius: 6px;
+  color: white;
+  text-align: center;
+  -webkit-appearance: none;
+  cursor: pointer;
 }
 .mui-chose {
-    border-radius:3px;
-    background:#777;
-    margin:2px;
-    padding: 1px;
+  border-radius: 3px;
+  background: #777;
+  margin: 2px;
+  padding: 1px;
 }
 .mui-chose .mui {
-    border: none;
-    border-radius:0px;
-    height:22px;
-    background: #222;
+  border: none;
+  border-radius: 0px;
+  height: 22px;
+  background: #222;
 }
 .mui-button {
-    width:0.9rem;
-    height:0.9rem;
-    margin:8px 2px;
-    vertical-align:middle;
-    cursor:pointer;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin: 8px 2px;
+  vertical-align: middle;
+  cursor: pointer;
 }
 .mui-button:hover {
-    opacity:0.5;
+  opacity: 0.5;
 }
 
 .mui-no-border {
-    border: none;
+  border: none;
 }
 
 .mui-select {
-    border:none;
-    background:none; /* no color, no decoration */
-    color:white;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
-    cursor: pointer;
+  border: none;
+  background: none; /* no color, no decoration */
+  color: white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
 }
 
 /*   Crop   */
 .crop-handle {
-    position: absolute;
-    display:inline-block;
-    width:5px;
-    height:5px;
-    background: white
+  position: absolute;
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: white
 }
 .crop-up {
-    top: 0;
-    left:50%;
-    transform: translate( -50% , -100% );
-    cursor: ns-resize;
+  top: 0;
+  left: 50%;
+  transform: translate( -50% , -100% );
+  cursor: ns-resize;
 }
 .crop-down {
-    bottom: 0;
-    left:50%;
-    transform: translate( -50% , 100% );
-    cursor: ns-resize;
+  bottom: 0;
+  left: 50%;
+  transform: translate( -50% , 100% );
+  cursor: ns-resize;
 }
 .crop-left {
-    top: 50%;
-    left:0;
-    transform: translate( -100% , -50% );
-    cursor: ew-resize;
+  top: 50%;
+  left: 0;
+  transform: translate( -100% , -50% );
+  cursor: ew-resize;
 }
 .crop-right {
-    top: 50%;
-    right:0;
-    transform: translate( 100% , -50% );
-    cursor: ew-resize;
+  top: 50%;
+  right: 0;
+  transform: translate( 100% , -50% );
+  cursor: ew-resize;
 }
 /*-----------------*/
-
