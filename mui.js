@@ -7,34 +7,57 @@ var MUI = {
     /**
      * @function slider
      */
-    slider: function slider(elem,callback) {
+    slider: function (elem, callback) {
         // Initialise a 'slider' control
 
         $(elem).data({
-            drag:false,
-            val:0,
-            max:100
+          drag: false,
+          val: 0,
+          max: 100
         });
     
-        var movex=function(el,clientX) {
-            if ($(el).data("drag")==true) {
-                var R=$(el).find(".mui-track")[0].getBoundingClientRect();
-                var x=(clientX-R.left)/R.width;
-                if(x<0) x=0;
-                if(x>1) x=1;
-                x=x*$(el).data("max");
-                if(x!=$(el).data("val")) {
-                    var max=$(el).data("max");
-                    $(el).data("val",x);
-                    $(el).find(".mui-thumb")[0].style.left=(x*100/max)+"%";
-                    callback(x);
-                }
-            }
+        const value = (el, clientX) => {
+          const R=$(el).find(".mui-track")[0].getBoundingClientRect();
+          let x=(clientX-R.left)/R.width;
+          if(x<0) x=0;
+          if(x>1) x=1;
+          x=x*$(el).data("max");
+          return x;
         };
-        $(document).on("mousemove",function from_slider(ev){movex(elem,ev.clientX);});
-        $(document).on("touchmove",function from_slider(ev){movex(elem,ev.originalEvent.changedTouches[0].pageX);});        
-        $(document).on("mouseup touchend",function from_slider(){$(elem).data({drag:false})});
-        $(elem).on('mousedown touchstart',function from_slider(){$(elem).data({drag:true})});
+
+        const movex = (el, clientX) => {
+          const continuous = !$(el).data("onstop");
+          const drag = $(el).data("drag");
+          if (drag) {
+            const x = value(el, clientX);
+            if(x!=$(el).data("val")) {
+              const max=$(el).data("max");
+              $(el).data("val", x);
+              $(el).find(".mui-thumb")[0].style.left=(x*100/max)+"%";
+              if(continuous) {
+                callback(x);
+              }
+            }
+          }
+        };
+
+        const endx = (el, clientX) => {
+          const drag = $(el).data("drag");
+          if(drag) {
+            $(elem).data({drag:false});
+            const continuous = !$(el).data("onstop");
+            if(!continuous) {
+              const x = value(el, clientX);
+              callback(x);
+            }
+          }
+        };
+
+        $(document).on("mousemove", (ev) => {movex(elem,ev.clientX);});
+        $(document).on("touchmove", (ev) => {movex(elem,ev.originalEvent.changedTouches[0].pageX);});        
+        $(document).on("mouseup", (ev) => {endx(elem,ev.clientX);});
+        $(document).on("touchend", (ev) => {endx(elem,ev.clientX);});
+        $(elem).on('mousedown touchstart', () => {$(elem).data({drag:true})});
     },
     /**
      * @function chose
