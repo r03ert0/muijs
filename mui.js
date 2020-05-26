@@ -61,6 +61,7 @@ var MUI = {
       $(document).on("touchend", (ev) => {endx(elem,ev.clientX);});
       $(elem).on('mousedown touchstart', () => {$(elem).data({drag:true})});
   },
+
   /**
    * @function chose
    */
@@ -70,14 +71,37 @@ var MUI = {
     ch.each(function(c, d) {
       $(d).click(function() {
         if($(this).hasClass("mui-pressed")) {
-          callback($(this).attr('title'));
-
-          return;
+          return callback($(this).attr('title'));
         }
         ch.each(function() { $(this).removeClass("mui-pressed"); });
         $(this).addClass("mui-pressed");
         if(callback) {
-          callback($(this).attr('title'));
+          return callback($(this).attr('title'));
+        }
+      });
+    });
+  },
+
+  /**
+   * @function chose3state
+   * @param {object} elem DOM element
+   * @param {function} callback Function called after a button is pressed
+   * @returns {void}
+   */
+  chose3state: function (elem, callback) {
+    // Initialise a 'chose3state' control
+    var ch=$(elem).find(".mui");
+    ch.each(function(c, d) {
+      $(d).click(function() {
+        if($(d).hasClass("mui-pressed")) {
+          $(d).removeClass("mui-pressed");
+
+          return callback("none");
+        }
+        ch.each(function(c1, d1) { $(d1).removeClass("mui-pressed"); });
+        $(d).addClass("mui-pressed");
+        if(callback) {
+          return callback($(d).attr('title'));
         }
       });
     });

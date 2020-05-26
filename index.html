@@ -64,6 +64,16 @@
         <br />
         <br />
 
+        <b>Three-state segmented button</b>
+        <br />
+        <span id='fourb' class='mui-chose' style='width:200px'>
+            <span title='Option one' class='mui mui-pressed'>One</span>
+            <span title='Option two' class='mui'>Two</span>
+            <span title='Option three' class='mui'>Three</span>
+        </span>
+        <br />
+        <br />
+
         <b>Toggle button</b>
         <br />
         <span id='five' title='Full screen' class='mui mui-toggle'>
@@ -96,6 +106,7 @@
             MUI.slider($("#three"), (x) => console.log("three", x));
             MUI.slider($("#threeb"), (x) => console.log("three-b", x));
             MUI.chose($("#four"), (o) => console.log("four", o));
+            MUI.chose3state($("#fourb"), (o) => console.log("four-b", o));
             MUI.toggle($("#five"), () => console.log("five"));
             MUI.toggle($("#six"), () => console.log("six"));
             MUI.crop("#seven", (c) => console.log("seven", c));
