@@ -185,8 +185,6 @@ var MUI = {
         y: e.pageY
       };
 
-      var offset = $(e.data.elem).parent().offset();
-
       switch(cropHandle) {
         case 'up':
           $(e.data.elem)[0].style.top = prevCrop.top + (curPosition.y - prevPosition.y);
