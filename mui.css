@@ -98,8 +98,8 @@
 .crop-handle {
   position: absolute;
   display: inline-block;
-  width: 5px;
-  height: 5px;
+  width: 10px;
+  height: 10px;
   background: white
 }
 .crop-up {
@@ -115,14 +115,14 @@
   cursor: ns-resize;
 }
 .crop-left {
-  top: 50%;
   left: 0;
+  top: 50%;
   transform: translate( -100% , -50% );
   cursor: ew-resize;
 }
 .crop-right {
-  top: 50%;
   right: 0;
+  top: 50%;
   transform: translate( 100% , -50% );
   cursor: ew-resize;
 }
