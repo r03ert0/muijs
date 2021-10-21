@@ -55,10 +55,10 @@ var MUI = {
         }
       };
 
-      $(document).on("mousemove", (ev) => {movex(elem,ev.clientX);});
-      $(document).on("touchmove", (ev) => {movex(elem,ev.originalEvent.changedTouches[0].pageX);});        
-      $(document).on("mouseup", (ev) => {endx(elem,ev.clientX);});
-      $(document).on("touchend", (ev) => {endx(elem,ev.clientX);});
+      $(document).on("mousemove", (ev) => {movex(elem, ev.clientX);});
+      $(document).on("touchmove", (ev) => {movex(elem, ev.originalEvent.changedTouches[0].pageX);});
+      $(document).on("mouseup", (ev) => {endx(elem, ev.clientX);});
+      $(document).on("touchend", (ev) => {endx(elem, ev.originalEvent.changedTouches[0].pageX);});
       $(elem).on('mousedown touchstart', () => {$(elem).data({drag:true})});
   },
 
