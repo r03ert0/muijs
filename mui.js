@@ -9,7 +9,7 @@ var MUI = {
   /**
    * @function slider
    */
-  slider: function (elem, callback) {
+  slider: function (elem, callback, event) {
       // Initialise a 'slider' control
 
       $(elem).data({
