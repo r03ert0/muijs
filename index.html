@@ -15,6 +15,12 @@
         span {
             margin: 3px;
         }
+        #three-val, #threeb-val {
+            border: thin solid white;
+            border-radius: 20px;
+            padding: 3px;
+            width: 48px;
+        }
       </style>
     </head>
 
@@ -35,22 +41,24 @@
         </span>
         <br />
         <br />
-        
-        <b>A continuous firing slider</b>
-        <br />
-        <div id="three" class='mui-slider' data-max=100 data-val=0 style='display:inline-block;position:relative;height:30px;margin-left:10px;width:calc(300px - 20px)'>
-            <div class='mui-track' style='position:absolute;left:0;top:50%;width:100%;border-top:1px solid #fff;padding:0;display:inline-block'></div>
-            <div class='mui-thumb' style='position:absolute;left:0;top:50%;transform:translate(-10px,-10px);border-radius:10px;padding:0;width:20px;height:20px;background:#fff;display:inline-block'></div>
-        </div>
-        <br />
-        <br />
-        
+
         <b>A slider</b>
         <br />
         <div id='threeb' class='mui-slider' data-onstop=true data-max=100 data-val=0 style='display:inline-block;position:relative;height:30px;margin-left:10px;width:calc(300px - 20px)'>
             <div class='mui-track' style='position:absolute;left:0;top:50%;width:100%;border-top:1px solid #fff;padding:0;display:inline-block'></div>
             <div class='mui-thumb' style='position:absolute;left:0;top:50%;transform:translate(-10px,-10px);border-radius:10px;padding:0;width:20px;height:20px;background:#fff;display:inline-block'></div>
         </div>
+        <span id='threeb-val' style='display:inline-block;text-align:center'>0</span>
+        <br />
+        <br />
+
+        <b>A continuous firing slider</b>
+        <br />
+        <div id="three" class='mui-slider' data-max=100 data-val=0 style='display:inline-block;position:relative;height:30px;margin-left:10px;width:calc(300px - 20px)'>
+            <div class='mui-track' style='position:absolute;left:0;top:50%;width:100%;border-top:1px solid #fff;padding:0;display:inline-block'></div>
+            <div class='mui-thumb' style='position:absolute;left:0;top:50%;transform:translate(-10px,-10px);border-radius:10px;padding:0;width:20px;height:20px;background:#fff;display:inline-block'></div>
+        </div>
+        <span id='three-val' style='display:inline-block;text-align:center'>0</span>
         <br />
         <br />
         
@@ -103,8 +111,17 @@
         <script>
             MUI.push($("#one"), () => console.log("one"));
             MUI.push($("#two"), () => console.log("two"));
-            MUI.slider($("#three"), (x, ev) => console.log("three", x));
-            MUI.slider($("#threeb"), (x) => console.log("three-b", x));
+            MUI.slider($("#three"), (x, ev) => {
+                if (ev.type === "mousemove") {
+                    document.querySelector("#three-val").style.backgroundColor = "#555";
+                } else {
+                    document.querySelector("#three-val").style.backgroundColor = "";
+                }
+                document.querySelector("#three-val").textContent = x.toFixed(1);
+            });
+            MUI.slider($("#threeb"), (x) => {
+                document.querySelector("#threeb-val").textContent = x.toFixed(1);
+            });
             MUI.chose($("#four"), (o) => console.log("four", o));
             MUI.chose3state($("#fourb"), (o) => console.log("four-b", o));
             MUI.toggle($("#five"), () => console.log("five"));

@@ -47,11 +47,8 @@ var MUI = {
         const drag = $(el).data("drag");
         if(drag) {
           $(elem).data({drag:false});
-          const continuous = !$(el).data("onstop");
-          if(!continuous) {
-            const x = value(el, clientX);
-            callback(x, ev);
-          }
+          const x = value(el, clientX);
+          callback(x, ev);
         }
       };
 
