@@ -103,7 +103,7 @@
         <script>
             MUI.push($("#one"), () => console.log("one"));
             MUI.push($("#two"), () => console.log("two"));
-            MUI.slider($("#three"), (x) => console.log("three", x));
+            MUI.slider($("#three"), (x, ev) => console.log("three", x));
             MUI.slider($("#threeb"), (x) => console.log("three-b", x));
             MUI.chose($("#four"), (o) => console.log("four", o));
             MUI.chose3state($("#fourb"), (o) => console.log("four-b", o));

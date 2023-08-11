@@ -9,7 +9,7 @@ var MUI = {
   /**
    * @function slider
    */
-  slider: function (elem, callback, event) {
+  slider: function (elem, callback) {
       // Initialise a 'slider' control
 
       $(elem).data({
@@ -27,7 +27,7 @@ var MUI = {
         return x;
       };
 
-      const movex = (el, clientX) => {
+      const movex = (el, clientX, ev) => {
         const continuous = !$(el).data("onstop");
         const drag = $(el).data("drag");
         if (drag) {
@@ -37,29 +37,29 @@ var MUI = {
             $(el).data("val", x);
             $(el).find(".mui-thumb")[0].style.left=(x*100/max)+"%";
             if(continuous) {
-              callback(x);
+              callback(x, ev);
             }
           }
         }
       };
 
-      const endx = (el, clientX) => {
+      const endx = (el, clientX, ev) => {
         const drag = $(el).data("drag");
         if(drag) {
           $(elem).data({drag:false});
           const continuous = !$(el).data("onstop");
           if(!continuous) {
             const x = value(el, clientX);
-            callback(x);
+            callback(x, ev);
           }
         }
       };
 
-      $(document).on("mousemove", (ev) => {movex(elem, ev.clientX);});
-      $(document).on("touchmove", (ev) => {movex(elem, ev.originalEvent.changedTouches[0].pageX);});
-      $(document).on("mouseup", (ev) => {endx(elem, ev.clientX);});
-      $(document).on("touchend", (ev) => {endx(elem, ev.originalEvent.changedTouches[0].pageX);});
-      $(elem).on('mousedown touchstart', () => {$(elem).data({drag:true})});
+      $(document).on("mousemove", (ev) => {movex(elem, ev.clientX, ev);});
+      $(document).on("touchmove", (ev) => {movex(elem, ev.originalEvent.changedTouches[0].pageX, ev);});
+      $(document).on("mouseup", (ev) => {endx(elem, ev.clientX, ev);});
+      $(document).on("touchend", (ev) => {endx(elem, ev.originalEvent.changedTouches[0].pageX, ev);});
+      $(elem).on('mousedown touchstart', (ev) => {$(elem).data({drag:true})});
   },
 
   /**
